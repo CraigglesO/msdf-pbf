@@ -2,6 +2,6 @@ src
 test
 fixtures
 proto
-testOut.pbf
 test.js
 *.pbf
+testFonts
