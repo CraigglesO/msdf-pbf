@@ -1,6 +1,6 @@
 {
   "name": "msdf-pbf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Compress msdf data into a protobuf and back again.",
   "main": "lib/index.js",
   "scripts": {
@@ -21,22 +21,21 @@
   },
   "homepage": "https://github.com/regia-corporation/msdf-pbf#readme",
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-syntax-flow": "^7.2.0",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-flow": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "core-js": "^3.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-flowtype": "^3.6.1",
-    "flow-bin": "^0.97.0",
-    "image-pixels": "^2.2.2",
-    "standard": "*",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-flow": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-flow": "^7.8.3",
+    "babel-eslint": "^10.0.3",
+    "core-js": "^3.6.4",
+    "eslint": "^6.8.0",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "flow-bin": "^0.117.0",
+    "standard": "^14.3.1",
     "tap-summary": "^4.0.0",
-    "tape": "^4.10.1",
-    "yarn-upgrade-all": "^0.5.0"
+    "tape": "^4.13.0",
+    "yarn-upgrade-all": "^0.5.2"
   },
   "standard": {
     "parser": "babel-eslint",
@@ -46,6 +45,6 @@
   },
   "dependencies": {
     "msdf-bmfont-xml": "^2.5.3",
-    "pbf": "^3.2.0"
+    "pbf": "^3.2.1"
   }
 }
