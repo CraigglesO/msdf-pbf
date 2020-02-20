@@ -6,8 +6,20 @@ import serialize from './serialize'
 // find all options here: https://github.com/soimy/msdf-bmfont-xml#api
 export type Options = {
   compress?: boolean,
-  textureSize: [number, number],
-  fontSize: number
+  textureSize?: [number, number],
+  fontSize?: number,
+  charset?: string,
+  texturePadding?: number,
+  border?: number,
+  fieldType?: 'msdf' | 'sdf' | 'psdf',
+  distanceRange?: number,
+  roundDecimal?: number,
+  vector?: boolean,
+  smartSize?: boolean,
+  pot?: boolean,
+  square?: boolean,
+  rot?: boolean,
+  rtl?: boolean
 }
 
 export type Font = {
@@ -17,9 +29,9 @@ export type Font = {
 
 const DEFAULT_OPTIONS = {
   outputType: 'json',
-  fieldType: 'sdf',
-  textureSize: [175, 175],
-  fontSize: 21
+  fieldType: 'msdf',
+  fontSize: 21,
+  smartSize: true
 }
 
 export default function buildFonts (fonts: Array<Font>, out: string, opts?: Options = {}) {
