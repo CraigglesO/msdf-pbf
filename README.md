@@ -23,19 +23,18 @@ yarn
 
 ### Example use
 ```js
-const fs = require('fs')
-const VectorTile = require('./lib').VectorTile
+// ES6
+import buildFonts from 'msdf-pbf'
+// ES5
+const buildFonts = require('msdf-pbf').default
 
-const fixture = fs.readFileSync('./fixtures/14-8801-5371.vector.pbf')
+const fonts = [
+  { name: 'robotoRegular', file: './testFonts/Roboto-Regular.ttf' },
+  { name: 'robotoMedium', file: './testFonts/Roboto-Medium.ttf' }
+]
 
-const tile = new VectorTile(fixture) // load the protobuf parsing it directly
+buildFonts(fonts, './fontPack.pbf', { compress: true })
 
-console.log(tile)
-
-let { landuse } = tile.layers // 107 features
-
-console.log(landuse.feature(0))
-console.log(landuse.feature(0).loadGeometry())
 ```
 
 ---

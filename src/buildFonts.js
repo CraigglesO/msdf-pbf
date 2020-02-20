@@ -1,3 +1,4 @@
+// @flow
 import fs from 'fs'
 import generateBMFont from 'msdf-bmfont-xml'
 import serialize from './serialize'
