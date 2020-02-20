@@ -3,9 +3,11 @@ import fs from 'fs'
 import generateBMFont from 'msdf-bmfont-xml'
 import serialize from './serialize'
 
+// find all options here: https://github.com/soimy/msdf-bmfont-xml#api
 export type Options = {
   compress?: boolean,
-  textureSize: [number, number]
+  textureSize: [number, number],
+  fontSize: number
 }
 
 export type Font = {
@@ -16,7 +18,8 @@ export type Font = {
 const DEFAULT_OPTIONS = {
   outputType: 'json',
   fieldType: 'sdf',
-  textureSize: [300, 300]
+  textureSize: [175, 175],
+  fontSize: 21
 }
 
 export default function buildFonts (fonts: Array<Font>, out: string, opts?: Options = {}) {
