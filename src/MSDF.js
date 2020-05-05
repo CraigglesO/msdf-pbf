@@ -1,5 +1,4 @@
 // @flow
-import zlib from 'zlib'
 import MSDFFont from './MSDFFont'
 import Protobuf from 'pbf'
 
@@ -8,11 +7,10 @@ type Fonts = {
 }
 
 export default class MSDF {
-  version: number
+  version: number = 1
   fonts: Fonts = {}
-  constructor (data: Buffer, compressed?: boolean = false, end?: number = 0) {
-    if (compressed) data = zlib.gunzipSync(data)
-    this._buildFonts(data, end)
+  constructor (data: Buffer, end?: number = 0) {
+    if (data) this._buildFonts(data, end)
   }
 
   _buildFonts (buffer: Buffer, end: number) {
@@ -27,5 +25,9 @@ export default class MSDF {
       const font: MSDFFont = new MSDFFont(pbf, pbf.readVarint() + pbf.pos)
       msdf.fonts[font.name] = font
     }
+  }
+
+  addFonts (msdf: MSDF) {
+    for (const name in msdf.fonts) this.fonts[name] = msdf.fonts[name]
   }
 }

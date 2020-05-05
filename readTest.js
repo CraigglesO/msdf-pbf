@@ -1,14 +1,29 @@
 const fs = require('fs')
+const zlib = require('zlib')
 const MSDF = require('./lib/MSDF').default
 
-const pbf = fs.readFileSync('./fontPack.pbf')
+const pbfDefault = zlib.gunzipSync(fs.readFileSync('./default.pbf'))
+const roboto = zlib.gunzipSync(fs.readFileSync('./Roboto.pbf'))
 
-const msdf = new MSDF(pbf, true)
+const msdf = new MSDF()
+
+console.time('build')
+const defaultMSDF = new MSDF(pbfDefault)
+const robotoMSDF = new MSDF(roboto)
+console.timeEnd('build')
+
+msdf.addFonts(defaultMSDF)
+msdf.addFonts(robotoMSDF)
 
 console.log('msdf', msdf)
-console.log('info', msdf.fonts.robotoMedium.info)
-// console.log('chars', msdf.fonts.robotoMedium.chars)
-// console.log('kernings', msdf.fonts.robotoMedium.kernings)
-console.log('textures', msdf.fonts.robotoRegular.textures, '\n', msdf.fonts.robotoMedium.textures)
-console.log('chars', msdf.fonts.robotoMedium.chars.f)
-console.log('chars', msdf.fonts.robotoMedium.chars.i)
+// console.log('default', defaultMSDF)
+// console.log('roboto', robotoMSDF)
+// const font = msdf.fonts.robotoRegular // robotoMedium
+// const font = msdf.fonts.default // robotoMedium
+// console.log('font', font)
+
+// const char = font.chars['a']
+// const char = font.chars['忐']
+// console.log('char', char)
+
+// fs.writeFileSync('./char.png', char.data)

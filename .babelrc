@@ -8,6 +8,11 @@
     "@babel/preset-flow"
   ],
   "plugins": [
+    ["@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ],
     "@babel/plugin-syntax-flow",
     "@babel/plugin-proposal-class-properties"
   ]
